@@ -1,3 +1,7 @@
+output "private_dns_resolvers_id" {
+  description = "Map of id values across all private_dns_resolvers, keyed the same as var.private_dns_resolvers"
+  value       = { for k, v in azurerm_private_dns_resolver.private_dns_resolvers : k => v.id }
+}
 output "private_dns_resolvers_location" {
   description = "Map of location values across all private_dns_resolvers, keyed the same as var.private_dns_resolvers"
   value       = { for k, v in azurerm_private_dns_resolver.private_dns_resolvers : k => v.location }
